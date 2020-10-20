@@ -63,7 +63,7 @@ jobs:
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       run: |
-       cd kustomize/base
+       cd deployment/dev
        kustomize edit set image gitops-webapp=$DOCKER_USERNAME/gitops-webapp:$GITHUB_SHA
        cat kustomization.yaml
         
@@ -71,9 +71,9 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git commit -am "Bump docker tag"
+        git commit -am "Bump docker tag to `${GITHUB_SHA}`"
 
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.GH_TOKEN }}

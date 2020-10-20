@@ -3,9 +3,8 @@ kind: Kustomization
 resources:
 - namespace.yaml
 - deployment.yaml
-- ingress.yaml
 - service.yaml
-namespace: dev
+namespace: demo-dev
 images:
-- name: cnych/gitops-webapp
-  newTag: 3f520d48
+- name: uuvtqd/gitops-webapp
+  newTag: 4a08697a4349670041b9c49f52f8991994eee785
