@@ -27,7 +27,7 @@ publish:
   dependencies:
     - build  
   only:
-    - master
+    - main
 
 deploy-dev:
   stage: deploy-dev
@@ -44,7 +44,7 @@ deploy-dev:
     - git commit -am '[skip ci] DEV image update'
     - git push origin master
   only:
-    - master
+    - main
 
 deploy-prod:
   stage: deploy-prod
@@ -62,5 +62,5 @@ deploy-prod:
     - git commit -am '[skip ci] PROD image update'
     - git push origin master
   only:
-    - master
+    - main
   when: manual
