@@ -74,6 +74,6 @@ jobs:
         git commit -am "Bump docker tag to `${GITHUB_SHA}`"
 
     - name: Push changes
-      uses: ad-m/github-push-action@master
+      uses: ad-m/github-push-action@main
       with:
         github_token: ${{ secrets.GH_TOKEN }}
