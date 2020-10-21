@@ -1,10 +1,10 @@
-FROM golang:1.14 as build
-WORKDIR /build
-COPY . .
-RUN CGO_ENABLED=0 go build -o hello-gitops main.go
+# FROM golang:1.14 as build
+# WORKDIR /build
+# COPY . .
+# RUN CGO_ENABLED=0 go build -o hello-gitops hello-gitops.go
 
-FROM alpine:3.12
+FROM scratch
 EXPOSE 8080
 WORKDIR /app
-COPY --from=build /build/hello-gitops .
+COPY ./hello-gitops .
 CMD ["./hello-gitops"]
