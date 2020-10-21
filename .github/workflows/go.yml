@@ -64,7 +64,7 @@ jobs:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       run: |
        cd deployment/dev
-       kustomize edit set image gitops-webapp=$DOCKER_USERNAME/gitops-webapp:$GITHUB_SHA
+       kustomize edit set image gitops-webapp=uuvtqd/gitops-webapp:$GITHUB_SHA
        cat kustomization.yaml
         
     - name: Commit files
