@@ -6,5 +6,8 @@ resources:
 - service.yaml
 namespace: demo-dev
 images:
+- name: gitops-webapp
+  newName: uuvtqd/gitops-webapp
+  newTag: 88e45e8cd5a57965f8ddafe50994840d0c399316
 - name: uuvtqd/gitops-webapp
   newTag: 4a08697a4349670041b9c49f52f8991994eee785
