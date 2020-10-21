@@ -2,45 +2,32 @@ package main
 
 import (
 	"fmt"
-	"html/template"
+	"log"
 	"net/http"
 	"os"
-	"time"
 )
 
-type Welcome struct {
-	Name string
-	Time string
-	Pod  string
-}
-
-func getPort() string {
-	p := os.Getenv("APP_PORT")
-	if p != "" {
-		return ":" + p
-	}
-	return ":8080"
-}
+const PORT = 8080
 
 func main() {
-	welcome := Welcome{"GITOPS-K8S", time.Now().Format(time.Stamp), os.Getenv("HOSTNAME")}
+	startServer(handler)
+}
 
-	templates := template.Must(template.ParseFiles("templates/welcome-template.html"))
+func startServer(handler func(http.ResponseWriter, *http.Request)) {
+	http.HandleFunc("/", handler)
+	log.Printf("starting server...")
+	http.ListenAndServe(fmt.Sprintf(":%d", PORT), nil)
+}
 
-	http.Handle("/static/",
-		http.StripPrefix("/static/",
-			http.FileServer(http.Dir("static"))))
-
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-
-		if name := r.FormValue("name"); name != "" {
-			welcome.Name = name
-		}
-		if err := templates.ExecuteTemplate(w, "welcome-template.html", welcome); err != nil {
-			http.Error(w, err.Error(), http.StatusInternalServerError)
-		}
-	})
-
-	fmt.Println("Listening on port " + getPort())
-	fmt.Println(http.ListenAndServe(getPort(), nil))
+func handler(w http.ResponseWriter, r *http.Request) {
+	log.Printf("received request from %s", r.Header.Get("User-Agent"))
+	host, err := os.Hostname()
+	if err != nil {
+		host = "unknown host"
+	}
+	resp := fmt.Sprintf("Hello from %s", host)
+	_, err = w.Write([]byte(resp))
+	if err != nil {
+		log.Panicf("not able to write http output: %s", err)
+	}
 }
