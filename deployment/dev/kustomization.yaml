@@ -8,8 +8,8 @@ namespace: demo-dev
 images:
 - name: gitops-webapp
   newName: uuvtqd/gitops-webapp
-  newTag: d0e5f09ddb4da1ce19f69a440707fe551fc6d873
+  newTag: b1d91c1a68c894a670e602e35fbb6b898f9716d7
 - name: uuvtqd/gitops-webapp
   newTag: 1d0a3ef201d6d996f16b5fb30ea4d17838da9388
 patchesStrategicMerge:
-    - modify_port.yaml
+- modify_port.yaml
