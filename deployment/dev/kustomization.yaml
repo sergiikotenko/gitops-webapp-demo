@@ -16,3 +16,4 @@ images:
 # https://kubectl.docs.kubernetes.io/pages/reference/kustomize.html
 patchesStrategicMerge:
 - custom-env.yaml
+
