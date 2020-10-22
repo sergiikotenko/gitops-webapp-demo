@@ -8,7 +8,7 @@ namespace: demo-dev
 images:
 - name: gitops-webapp
   newName: uuvtqd/gitops-webapp
-  newTag: 20069016337a798074456bbee02c96f4c65dbb69
+  newTag: 3623a04d0bd5c86c6c0ea63c05700f3d95764c5d
 - name: uuvtqd/gitops-webapp
   newTag: 1d0a3ef201d6d996f16b5fb30ea4d17838da9388
 
