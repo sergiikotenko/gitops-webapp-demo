@@ -8,7 +8,7 @@ namespace: demo-dev
 images:
 - name: gitops-webapp
   newName: uuvtqd/gitops-webapp
-  newTag: b1d91c1a68c894a670e602e35fbb6b898f9716d7
+  newTag: 20069016337a798074456bbee02c96f4c65dbb69
 - name: uuvtqd/gitops-webapp
   newTag: 1d0a3ef201d6d996f16b5fb30ea4d17838da9388
 
@@ -18,9 +18,9 @@ images:
 # https://kubectl.docs.kubernetes.io/pages/reference/kustomize.html
 
 patchesJson6902:
-  - target:
-      name: gitops-webapp
-      group: apps
-      version: v1
-      kind: Deployment
-    path: modify_port.yaml
+- path: modify_port.yaml
+  target:
+    group: apps
+    kind: Deployment
+    name: gitops-webapp
+    version: v1
