@@ -11,5 +11,16 @@ images:
   newTag: b1d91c1a68c894a670e602e35fbb6b898f9716d7
 - name: uuvtqd/gitops-webapp
   newTag: 1d0a3ef201d6d996f16b5fb30ea4d17838da9388
-patchesStrategicMerge:
-- modify_port.yaml
+
+# Not all Resources or fields support strategic merge patches. 
+# To support modifying arbitrary fields in arbitrary Resources, 
+# Kustomize offers applying JSON patch through patchesJson6902. 
+# https://kubectl.docs.kubernetes.io/pages/reference/kustomize.html
+
+patchesJson6902:
+  - target:
+      name: gitops-webapp
+      group: apps
+      version: v1
+      kind: Deployment
+    path: modify_port.yaml
