@@ -7,7 +7,7 @@ resources:
 namespace: demo-dev
 images:
 - name: uuvtqd/gitops-webapp
-  newTag: b80eb3f26b0f59ebbec9d97c2730e330bc0bf0b6
+  newTag: 6afd5893dfe2d989cc9575d3862f4c9cdb76fdcd
 
 
 # Not all Resources or fields support strategic merge patches. 
