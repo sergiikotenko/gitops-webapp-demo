@@ -1,0 +1,7 @@
+ArgoCD: https://a8ba5163d4eb946c185e500a0a445dea-1780875540.eu-central-1.elb.amazonaws.com/applications/web-app-dev
+GH  Actions: https://github.com/sergiikotenko/gitops-webapp-demo/actions
+
+gitops-webapp-demo (main)$:
+	k apply -f argocd.yaml (expected result - new projects are created)
+	check GH Action (expected result: build and deploy are OK)
+	Check ArgoCD (expected result: new image are delivered to the k8s)

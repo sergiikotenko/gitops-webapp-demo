@@ -34,7 +34,9 @@ jobs:
       run: go build -o hello-gitops main.go
 
     - name: Test
-      run: go test ./...
+      run: |
+        go test ./...
+        ls -la
     
     - name: Build and push Docker image
       uses: docker/build-push-action@v1.1.0
