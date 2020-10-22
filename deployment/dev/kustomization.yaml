@@ -8,16 +8,21 @@ namespace: demo-dev
 images:
 - name: uuvtqd/gitops-webapp
   newTag: 1d0a3ef201d6d996f16b5fb30ea4d17838da9388
+- name: gitops-webapp
+  newName: uuvtqd/gitops-webapp
+  newTag: 4ed1d7e4f84a228692e422bb463c4ded0847a230
 
 # Not all Resources or fields support strategic merge patches. 
 # To support modifying arbitrary fields in arbitrary Resources, 
 # Kustomize offers applying JSON patch through patchesJson6902. 
 # https://kubectl.docs.kubernetes.io/pages/reference/kustomize.html
+patchesStrategicMerge:
+- custom-env.yaml
 
-patchesJson6902:
-- path: modify_port.yaml
-  target:
-    group: apps
-    kind: Deployment
-    name: gitops-webapp
-    version: v1
+# patchesJson6902:
+# - path: modify_port.yaml
+#   target:
+#     group: apps
+#     kind: Deployment
+#     name: gitops-webapp
+#     version: v1

@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gitops-webapp
+spec:
+  selector:
+    matchLabels:
+      app: gitops-webapp
+  template:
+    spec:
+      containers:
+        - name: gitops-webapp # (1)
+          env:
+            - name: CUSTOM_ENV_VARIABLE
+              value: Value defined by Kustomize ❤️
+            - name: SUPPORT_EMAIL_ADDR
+              value: 'support@sixt.com'
