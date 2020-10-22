@@ -3,7 +3,7 @@
 # COPY . .
 # RUN CGO_ENABLED=0 go build -o hello-gitops main.go
 
-FROM scratch
+FROM alpine:3.12.1
 EXPOSE 8080
 # WORKDIR /app
 COPY ./hello-gitops .
