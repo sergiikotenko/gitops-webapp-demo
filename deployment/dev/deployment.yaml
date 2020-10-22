@@ -15,7 +15,7 @@ spec:
         app: gitops-webapp
     spec:
       containers:
-      - image: uuvtqd/gitops-webapp:22e42c30
+      - image: uuvtqd/gitops-webapp:6afd5893dfe2d989cc9575d3862f4c9cdb76fdcd
         name: gitops-webapp
         imagePullPolicy: Always
         ports:
