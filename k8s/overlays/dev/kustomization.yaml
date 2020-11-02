@@ -12,6 +12,6 @@ images:
 # To support modifying arbitrary fields in arbitrary Resources, 
 # Kustomize offers applying JSON patch through patchesJson6902. 
 # https://kubectl.docs.kubernetes.io/pages/reference/kustomize.html
-patchesStrategicMerge:
-- custom-env.yaml
+# patchesStrategicMerge:
+# - custom-env.yaml
 
