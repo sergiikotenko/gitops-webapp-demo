@@ -5,3 +5,11 @@ gitops-webapp-demo (main)$:
 	k apply -f argocd.yaml (expected result - new projects are created)
 	check GH Action (expected result: build and deploy are OK)
 	Check ArgoCD (expected result: new image are delivered to the k8s)
+
+
+Open question:
+ - divide application into 2 parts - application and gitops (k8s config files, kustomize etc)
+  - git@github.com:sergiikotenko/gitops-infra-demo.git k8s base files
+  - 
+ - How to promote image to another environment
+ - similar ENV_VARS with different values
