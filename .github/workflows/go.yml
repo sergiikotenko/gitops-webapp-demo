@@ -57,7 +57,12 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: sergiikotenko/gitops-infra-demo
+        ref: dev
         token: ${{ secrets.GH_TOKEN }}
+      run: |
+        ls -la
+        ls -la argocd/
+        ls -la k8s/base
 
     - name: Setup Kustomize
       uses: imranismail/setup-kustomize@v1
