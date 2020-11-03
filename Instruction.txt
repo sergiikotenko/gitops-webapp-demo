@@ -8,8 +8,8 @@ gitops-webapp-demo (main)$:
 
 
 Open question:
- - divide application into 2 parts - application and gitops (k8s config files, kustomize etc)
-  - git@github.com:sergiikotenko/gitops-infra-demo.git k8s base files
+ - [/] divide application into 2 parts - application and gitops (k8s config files, kustomize etc)
+  - [/] git@github.com:sergiikotenko/gitops-infra-demo.git k8s base files
   - 
- - How to promote image to another environment
+ - How to promote image to another environment - via pull request?
  - similar ENV_VARS with different values
