@@ -59,7 +59,7 @@ jobs:
         repository: sergiikotenko/gitops-infra-demo
         ref: dev
         token: ${{ secrets.GH_TOKEN }}
-        fetch-depth: 0
+        fetch-depth: 0  
 
     - name: Show folder content
       run: |
@@ -91,3 +91,5 @@ jobs:
       with:
         github_token: ${{ secrets.GH_TOKEN }}
         branch: dev
+        repository: sergiikotenko/gitops-infra-demo
+        
