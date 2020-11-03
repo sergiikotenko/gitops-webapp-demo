@@ -9,7 +9,7 @@ spec:
   source: 
     repoURL: git@github.com:sergiikotenko/gitops-infra-demo.git
     targetRevision: dev # Could be HEAD or branch name - 'main' or 'dev' or 'somethingelse'
-    path: base
+    path: k8s/base
   destination:
     server: https://kubernetes.default.svc
     namespace: demo-dev
