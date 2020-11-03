@@ -3,8 +3,8 @@ name: Go
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  # pull_request:
+  #   branches: [ main ]
 
 jobs:
 
@@ -59,7 +59,7 @@ jobs:
         repository: sergiikotenko/gitops-infra-demo
         ref: dev
         token: ${{ secrets.GH_TOKEN }}
-        
+
     - name: Show folder content
       run: |
         ls -la
@@ -71,22 +71,22 @@ jobs:
       with:
         kustomize-version: "3.6.1"
 
-    # - name: Update Kubernetes Resources
-    #   env:
-    #     DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-    #   run: |
-    #    cd k8s/dev
-    #    kustomize edit set image uuvtqd/gitops-webapp:$GITHUB_SHA
-    #    cat kustomization.yaml
+    - name: Update Kubernetes Resources
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      run: |
+       cd k8s/base
+       kustomize edit set image uuvtqd/gitops-webapp:$GITHUB_SHA
+       cat kustomization.yaml
         
-    # - name: Commit files
-    #   run: |
-    #     git config --local user.email "action@github.com"
-    #     git config --local user.name "GitHub Action"
-    #     git commit -am "Bump docker tag to `${GITHUB_SHA}`"
+    - name: Commit files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -am "Bump docker tag to `${GITHUB_SHA}`"
 
-    # - name: Push changes
-    #   uses: ad-m/github-push-action@master
-    #   with:
-    #     github_token: ${{ secrets.GH_TOKEN }}
-    #     branch: main
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GH_TOKEN }}
+        branch: dev
