@@ -59,10 +59,12 @@ jobs:
         repository: sergiikotenko/gitops-infra-demo
         ref: dev
         token: ${{ secrets.GH_TOKEN }}
+        
+    - name: Show folder content
       run: |
         ls -la
         ls -la argocd/
-        ls -la k8s/base
+        ls -la k8s/base/
 
     - name: Setup Kustomize
       uses: imranismail/setup-kustomize@v1
